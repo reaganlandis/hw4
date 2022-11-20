@@ -138,6 +138,8 @@ protected:
     virtual void nodeSwap( AVLNode<Key,Value>* n1, AVLNode<Key,Value>* n2);
 
     // Add helper functions here
+    virtual void rotateLeft(AVLNode<Key, Value>* parent, AVLNode<Key, Value>* node);
+    virtual void rotateRight(AVLNode<Key, Value>* parent, AVLNode<Key, Value>* node);
 
 
 };
@@ -160,7 +162,22 @@ template<class Key, class Value>
 void AVLTree<Key, Value>:: remove(const Key& key)
 {
     // TODO
+    AVLNode<Key, Value>* temp = internalFind(key);
+    if(temp->getLeft()!=nullptr && temp->getRight() != nullptr){
+        nodeSwap(temp, predecessor(temp));
+    }
 }
+
+template<class Key, class Value>
+void AVLTree<Key, Value>:: rotateLeft(AVLNode<Key, Value>* parent, AVLNode<Key, Value>* node){
+    //TODO, added by me
+}
+
+template<class Key, class Value>
+void AVLTree<Key, Value>:: rotateRight(AVLNode<Key, Value>* parent, AVLNode<Key, Value>* node){
+    //TODO, added by me
+}
+
 
 template<class Key, class Value>
 void AVLTree<Key, Value>::nodeSwap( AVLNode<Key,Value>* n1, AVLNode<Key,Value>* n2)
